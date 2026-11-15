@@ -1,26 +1,62 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-ivory: #FAF8F5;
+  --color-ivory-warm: #F4EFEA;
+  --color-ivory-surface: #EFE9E0;
+  --color-ivory-border: #E5DFD3;
+  --color-ivory-border-subtle: #EEE8DC;
+  
+  --color-charcoal: #191817;
+  --color-charcoal-light: #2A2826;
+  --color-charcoal-muted: #5E5B56;
+  --color-charcoal-subtle: #8E8A83;
+  
+  --color-accent-red: #D32F2F;
+  --color-accent-red-hover: #B71C1C;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-sans: var(--font-dm-sans), "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --color-ivory: var(--color-ivory);
+  --color-ivory-warm: var(--color-ivory-warm);
+  --color-ivory-surface: var(--color-ivory-surface);
+  --color-ivory-border: var(--color-ivory-border);
+  --color-charcoal: var(--color-charcoal);
+  --color-charcoal-muted: var(--color-charcoal-muted);
+  --color-accent-red: var(--color-accent-red);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  background-color: #FAF8F5;
+  color: #191817;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-ivory);
+  color: var(--color-charcoal);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #191817;
+  color: #FAF8F5;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
