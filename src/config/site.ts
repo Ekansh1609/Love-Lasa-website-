@@ -14,11 +14,10 @@ export const SITE_CONFIG = {
 };
 
 export const NAV_ITEMS: NavItem[] = [
-  { label: "New Arrivals", href: "#new-arrivals" },
-  { label: "Signature Pieces", href: "#signature-pieces" },
-  { label: "Collections", href: "#collections" },
-  { label: "Atelier Story", href: "#atelier" },
-  { label: "Editorial", href: "#editorial" },
+  { label: "Shop", href: "#shop" },
+  { label: "The Edit", href: "#the-edit" },
+  { label: "Our World", href: "#our-world" },
+  { label: "Notes", href: "#notes" },
 ];
 
 export const DISCOVERY_DESTINATIONS: CollectionItem[] = [
