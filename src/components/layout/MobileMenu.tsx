@@ -3,7 +3,7 @@
 import React, { useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
-import { X, ArrowRight, User, Search } from "lucide-react";
+import { X, ArrowRight, User } from "lucide-react";
 import { NAV_ITEMS, SITE_CONFIG } from "@/config/site";
 
 interface MobileMenuProps {
@@ -78,7 +78,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 </button>
               </div>
 
-              {/* Navigation list: Shop, The Edit, Our World, Notes */}
+              {/* Navigation list: Home, Shop, Our Story, Contact Us */}
               <nav className="mt-8 flex flex-col space-y-4" aria-label="Mobile Navigation Links">
                 {NAV_ITEMS.map((item, index) => (
                   <motion.div
@@ -99,22 +99,14 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 ))}
               </nav>
 
-              {/* Account & Search Secondary Row */}
-              <div className="mt-8 pt-6 border-t border-[#E5DFD3] space-y-3">
+              {/* Account Action (Search removed) */}
+              <div className="mt-8 pt-6 border-t border-[#E5DFD3]">
                 <button
                   type="button"
                   onClick={onClose}
-                  className="w-full flex items-center space-x-3 text-xs uppercase tracking-[0.2em] text-[#5E5B56] hover:text-[#191817] py-2 transition-colors text-left"
+                  className="w-full flex items-center space-x-3 text-xs uppercase tracking-[0.2em] text-[#5E5B56] hover:text-[#191817] py-2.5 transition-colors text-left group"
                 >
-                  <Search className="w-4 h-4 stroke-[1.5]" />
-                  <span>Search Catalogue</span>
-                </button>
-                <button
-                  type="button"
-                  onClick={onClose}
-                  className="w-full flex items-center space-x-3 text-xs uppercase tracking-[0.2em] text-[#5E5B56] hover:text-[#191817] py-2 transition-colors text-left"
-                >
-                  <User className="w-4 h-4 stroke-[1.5]" />
+                  <User className="w-4 h-4 stroke-[1.5] group-hover:text-[#191817]" />
                   <span>Account & Profile</span>
                 </button>
               </div>
@@ -136,11 +128,11 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 </a>
                 <span className="text-[#E5DFD3]">•</span>
                 <a
-                  href="#notes"
+                  href="#contact-us"
                   onClick={onClose}
                   className="hover:text-[#191817] transition-colors"
                 >
-                  Journal Archive
+                  Concierge
                 </a>
               </div>
             </div>

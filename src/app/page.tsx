@@ -87,7 +87,7 @@ export default function HeaderVerificationPage() {
                 <div>
                   <strong className="text-[#191817] block font-medium">Desktop Layout (1280px, 1440px)</strong>
                   <span className="text-[#5E5B56] text-[11px]">
-                    Love Lasa wordmark on left; Shop, The Edit, Our World, Notes in center; Search, Account, Bag on right.
+                    Left: LOVE LASA wordmark; Centre: Home, Shop, Our Story, Contact Us; Right: Shopping Bag & Account icons only.
                   </span>
                 </div>
               </div>
@@ -97,7 +97,7 @@ export default function HeaderVerificationPage() {
                 <div>
                   <strong className="text-[#191817] block font-medium">Mobile Layout (375px, 390px, 768px)</strong>
                   <span className="text-[#5E5B56] text-[11px]">
-                    Hamburger menu on left; centered Love Lasa wordmark; Search & Bag on right without overflow.
+                    Left: Hamburger menu; Centre: LOVE LASA wordmark; Right: Shopping Bag & Account icons only (Search removed).
                   </span>
                 </div>
               </div>

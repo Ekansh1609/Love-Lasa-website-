@@ -14,10 +14,10 @@ export const SITE_CONFIG = {
 };
 
 export const NAV_ITEMS: NavItem[] = [
+  { label: "Home", href: "#" },
   { label: "Shop", href: "#shop" },
-  { label: "The Edit", href: "#the-edit" },
-  { label: "Our World", href: "#our-world" },
-  { label: "Notes", href: "#notes" },
+  { label: "Our Story", href: "#our-story" },
+  { label: "Contact Us", href: "#contact-us" },
 ];
 
 export const DISCOVERY_DESTINATIONS: CollectionItem[] = [
