@@ -12,10 +12,10 @@ import { ImageSlot } from "@/types";
 export const IMAGES = {
   hero: {
     src: "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=2400&auto=format&fit=crop",
-    alt: "Love Lasa Campaign - Modern Architectural Tailoring in Warm Light",
+    alt: "Love Lasa Campaign - Contemporary Indian Wear, Form in Motion",
     width: 2400,
     height: 1600,
-    caption: "Chapter 01 : Serene Forms",
+    caption: "Chapter 01 : Form in Motion",
   } satisfies ImageSlot,
 
   pinnedReveal: {
@@ -47,26 +47,26 @@ export const IMAGES = {
   destinations: {
     newArrivals: {
       src: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=1400&auto=format&fit=crop",
-      alt: "New Arrivals - Fall/Winter Minimalist Trench and Suiting",
+      alt: "New Arrivals - Ivory Draped Silk Silhouette",
       width: 1400,
       height: 1800,
-      caption: "Collection 2026.1",
+      caption: "New Arrivals",
     } satisfies ImageSlot,
 
     signaturePieces: {
-      src: "https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?q=80&w=1400&auto=format&fit=crop",
-      alt: "Signature Pieces - The Architectural Trench",
+      src: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=1400&auto=format&fit=crop",
+      alt: "Signature Pieces - Rust Red Draped Gown in Golden Light",
       width: 1400,
       height: 1800,
-      caption: "Permanent Archive",
+      caption: "Signature Pieces",
     } satisfies ImageSlot,
 
     bestsellers: {
-      src: "https://images.unsplash.com/photo-1502716119720-b23a93e5fe1b?q=80&w=1400&auto=format&fit=crop",
-      alt: "Bestsellers - Tailored Cashmere Coat and Fluid Trousers",
+      src: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1400&auto=format&fit=crop",
+      alt: "Bestsellers - Sculptural Embroidered Drape",
       width: 1400,
       height: 1800,
-      caption: "Curated Icons",
+      caption: "Bestsellers",
     } satisfies ImageSlot,
   },
 

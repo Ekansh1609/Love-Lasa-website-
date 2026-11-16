@@ -2,20 +2,27 @@
 
 import React from "react";
 import Image from "next/image";
-import { ArrowDown } from "lucide-react";
+import { ArrowRight, ArrowDown } from "lucide-react";
 import { IMAGES } from "@/config/images";
-import { SITE_CONFIG } from "@/config/site";
 
-export function HeroSection() {
-  const scrollToNext = () => {
-    const nextSection = document.getElementById("pinned-reveal");
-    if (nextSection) {
-      nextSection.scrollIntoView({ behavior: "smooth" });
+interface HeroSectionProps {
+  onScrollCueClick?: () => void;
+}
+
+export function HeroSection({ onScrollCueClick }: HeroSectionProps) {
+  const scrollToCollections = () => {
+    if (onScrollCueClick) {
+      onScrollCueClick();
+      return;
+    }
+    const target = document.getElementById("discover-collections");
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <section className="relative w-full h-screen min-h-[700px] flex items-end justify-between overflow-hidden bg-[#191817]">
+    <section className="relative w-full h-screen min-h-[640px] flex flex-col justify-between overflow-hidden bg-[#191817] text-white">
       {/* Background Campaign Photography */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -24,48 +31,56 @@ export function HeroSection() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center scale-105 animate-pulse/0 transition-transform duration-1000 ease-out"
+          className="object-cover object-center scale-[1.02] transition-transform duration-1000 ease-out"
         />
-        {/* Cinematic subtle gradient overlays to ensure text legibility while keeping warm neutral tone */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#191817]/70 via-[#191817]/25 to-black/35" />
+        {/* Subtle cinematic gradient overlays */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/35" />
       </div>
 
-      {/* Hero Content & Brand Statement */}
-      <div className="relative z-10 w-full max-w-[1500px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 pb-12 sm:pb-16 flex flex-col justify-end text-white">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
-          <div className="max-w-2xl">
-            <span className="inline-block text-[11px] sm:text-xs uppercase tracking-[0.28em] text-[#E5DFD3] mb-4">
-              {IMAGES.hero.caption}
-            </span>
-            <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-light tracking-[0.04em] leading-[0.95] text-white">
-              The Architecture of Stillness
-            </h1>
-            <p className="mt-5 text-sm sm:text-base text-white/80 font-light max-w-xl leading-relaxed">
-              {SITE_CONFIG.description}
-            </p>
-          </div>
+      {/* Spacer to push content down below header */}
+      <div className="w-full pt-28 sm:pt-32" />
 
-          {/* Right Action / Scroll Cue */}
-          <div className="flex items-center space-x-6 sm:space-x-8">
+      {/* Hero Content (Form in Motion) */}
+      <div className="relative z-10 w-full max-w-[1500px] mx-auto px-6 sm:px-10 lg:px-16 pb-16 sm:pb-20">
+        <div className="max-w-xl">
+          {/* Tagline */}
+          <span className="inline-block text-[10px] sm:text-[11px] uppercase tracking-[0.28em] text-white/80 font-sans mb-3 sm:mb-4">
+            Contemporary Indian Wear
+          </span>
+
+          {/* Headline: Form in Motion */}
+          <h1 className="font-serif text-5xl sm:text-7xl lg:text-8xl font-light tracking-[0.02em] leading-[0.95] text-white mb-6 sm:mb-8">
+            Form <br />
+            <span className="italic font-light">in Motion</span>
+          </h1>
+
+          {/* CTA Link: Explore the Edit -> */}
+          <div>
             <a
-              href="#new-arrivals"
-              className="inline-flex items-center justify-center px-6 sm:px-8 py-3.5 sm:py-4 bg-[#FAF8F5] text-[#191817] font-sans text-xs uppercase tracking-[0.2em] transition-all hover:bg-white active:scale-95"
+              href="#discover-collections"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToCollections();
+              }}
+              className="inline-flex items-center space-x-2 text-[11px] sm:text-xs uppercase tracking-[0.22em] text-white py-2 border-b border-white/60 hover:border-white transition-all group"
             >
-              Explore Collection
+              <span>Explore the Edit</span>
+              <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
-
-            <button
-              onClick={scrollToNext}
-              aria-label="Scroll down to campaign reveal"
-              className="group flex items-center space-x-3 text-xs uppercase tracking-[0.2em] text-white/80 hover:text-white transition-colors"
-            >
-              <span className="hidden sm:inline-block">Scroll</span>
-              <div className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center group-hover:border-white transition-colors">
-                <ArrowDown className="w-4 h-4 animate-bounce" />
-              </div>
-            </button>
           </div>
         </div>
+      </div>
+
+      {/* Downward Scroll Cue */}
+      <div className="relative z-10 w-full pb-6 flex justify-center">
+        <button
+          onClick={scrollToCollections}
+          type="button"
+          aria-label="Scroll down to Discover Our Collections"
+          className="group p-2 text-white/70 hover:text-white transition-colors"
+        >
+          <ArrowDown className="w-4 h-4 animate-bounce" />
+        </button>
       </div>
     </section>
   );
