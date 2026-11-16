@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { Header } from "@/components/layout/Header";
+import { ThreeImageRevealSection } from "@/components/sections/ThreeImageReveal";
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
 import { IMAGES } from "@/config/images";
@@ -58,7 +59,12 @@ export default function HeaderVerificationPage() {
       </section>
 
       {/* ========================================================================= */}
-      {/* 3. SCROLLED VERIFICATION CANVAS (Validates Scrolled Frosted Ivory Header) */}
+      {/* 3. THREE-IMAGE REVEAL SECTION (Desktop Pinned GSAP + Mobile Touch Carousel) */}
+      {/* ========================================================================= */}
+      <ThreeImageRevealSection />
+
+      {/* ========================================================================= */}
+      {/* 4. SCROLLED VERIFICATION CANVAS (Validates Scrolled Header & Page Flow)   */}
       {/* ========================================================================= */}
       <section className="py-20 sm:py-28 bg-[#FAF8F5] border-t border-[#E5DFD3]">
         <Container size="default">
