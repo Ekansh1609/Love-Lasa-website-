@@ -6,7 +6,7 @@ import { useCouture } from '@/context/CoutureContext';
 import { registerGSAP } from '@/lib/gsap';
 
 export function OurJourneySection() {
-  const { setIsStoryOpen, mediaSlots } = useCouture();
+  const { mediaSlots } = useCouture();
   const sectionRef = useRef<HTMLElement>(null);
   const loomInnerRef = useRef<HTMLDivElement>(null);
 
