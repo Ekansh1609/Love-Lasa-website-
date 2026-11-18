@@ -1,0 +1,245 @@
+import { DEFAULT_IMAGES } from './coutureImages';
+import {
+  MediaSlotId,
+  MediaSlot,
+  HeroCampaign,
+  FeaturedProduct,
+  CollectionCategory,
+} from '@/types/couture';
+
+export const INITIAL_MEDIA_SLOTS: Record<MediaSlotId, MediaSlot> = {
+  hero_1: {
+    id: 'hero_1',
+    label: 'Hero 01 — Chanderi Organza Saree',
+    ratio: '16:9 / 3:4',
+    note: 'Primary Campaign Look',
+    src: DEFAULT_IMAGES.hero_1,
+  },
+  hero_2: {
+    id: 'hero_2',
+    label: 'Hero 02 — Banarasi Tissue Set',
+    ratio: '16:9 / 3:4',
+    note: 'Second Campaign Look',
+    src: DEFAULT_IMAGES.hero_2,
+  },
+  hero_3: {
+    id: 'hero_3',
+    label: 'Hero 03 — Nocturne Obsidian Saree',
+    ratio: '16:9 / 3:4',
+    note: 'Third Campaign Look',
+    src: DEFAULT_IMAGES.hero_3,
+  },
+  col_new_arrivals: {
+    id: 'col_new_arrivals',
+    label: 'Collection — New Arrivals',
+    ratio: '3:4 Full Height',
+    note: 'New Arrivals Destination',
+    src: DEFAULT_IMAGES.col_new_arrivals,
+  },
+  col_signature: {
+    id: 'col_signature',
+    label: 'Collection — Signature Pieces',
+    ratio: '3:4 Full Height',
+    note: 'Signature Pieces Destination',
+    src: DEFAULT_IMAGES.col_new_arrivals,
+  },
+  col_bestsellers: {
+    id: 'col_bestsellers',
+    label: 'Collection — Bestsellers',
+    ratio: '3:4 Full Height',
+    note: 'Bestsellers Destination',
+    src: DEFAULT_IMAGES.col_new_arrivals,
+  },
+  feat_main: {
+    id: 'feat_main',
+    label: 'Featured — 01 Main Portrait',
+    ratio: '3:4 Full Portrait',
+    note: 'Entire garment visible on model',
+    src: DEFAULT_IMAGES.devika_1,
+  },
+  feat_craft: {
+    id: 'feat_craft',
+    label: 'Featured — 02 Fabric Macro',
+    ratio: '3:4 Close-Up',
+    note: 'Close-up of the SAME garment weave',
+    src: DEFAULT_IMAGES.devika_2,
+  },
+  feat_drape: {
+    id: 'feat_drape',
+    label: 'Featured — 03 Alternate Drape',
+    ratio: '3:4 Back / Side Angle',
+    note: 'Alternate angle of the SAME garment',
+    src: DEFAULT_IMAGES.devika_3,
+  },
+  journey_atelier: {
+    id: 'journey_atelier',
+    label: 'Our Journey — Pit Loom',
+    ratio: '16:9 Full Bleed',
+    note: 'Master Weaver at the Loom',
+    src: DEFAULT_IMAGES.journey_atelier,
+  },
+};
+
+export const HERO_CAMPAIGNS: HeroCampaign[] = [
+  {
+    slotId: 'hero_1',
+    kicker: 'Campaign 01 — Autumn / Winter',
+    title: 'Fluid Architecture',
+    desc: 'Handwoven Chanderi silk-organza and antique zari borders.',
+    ctaText: 'Explore Campaign',
+    ctaHref: '#featured-story',
+  },
+  {
+    slotId: 'hero_2',
+    kicker: 'Campaign 02 — The Atelier Edit',
+    title: 'Sculpted in Silk',
+    desc: 'Weightless Banarasi tissue weaves in numbered editions.',
+    ctaText: 'Discover New Arrivals',
+    ctaHref: '#collection-discovery',
+  },
+  {
+    slotId: 'hero_3',
+    kicker: 'Campaign 03 — Nocturne Heritage',
+    title: 'Quiet Gold',
+    desc: 'Restrained antique zari threadwork on obsidian handloom silk.',
+    ctaText: 'Explore Our Journey',
+    ctaHref: '/journey',
+  },
+];
+
+export const FEATURED_PRODUCTS: Record<string, FeaturedProduct> = {
+  'devika-saree': {
+    id: 'devika-saree',
+    num: '01',
+    name: 'The Devika Zari Organza Saree',
+    collection: 'Signature Pieces',
+    collectionKey: 'signature-pieces',
+    price: 48500,
+    desc: 'Handwoven over eighteen days in Chanderi with antique metallic zari borders—shown across three perspectives of the same garment.',
+    cap1: 'Full-length Chanderi silk-organza drape',
+    cap2: 'Macro handwoven zari border & organza warp',
+    cap3: 'Shoulder pallu fall & back silhouette',
+    img1: DEFAULT_IMAGES.devika_1,
+    img2: DEFAULT_IMAGES.devika_2,
+    img3: DEFAULT_IMAGES.devika_3,
+  },
+  'meher-kurta': {
+    id: 'meher-kurta',
+    num: '02',
+    name: 'The Meher Tissue Kurta Ensemble',
+    collection: 'New Arrivals',
+    collectionKey: 'new-arrivals',
+    price: 36000,
+    desc: 'Handspun bronze-gold Banarasi tissue with tonal resham-tucked seams and a fluid organza odhani—three studies of the same ensemble.',
+    cap1: 'Complete three-piece Banarasi tissue silhouette',
+    cap2: 'Hand-tucked resham seam & metallic warp macro',
+    cap3: 'Odhani drape & side profile in motion',
+    img1: DEFAULT_IMAGES.meher_1,
+    img2: DEFAULT_IMAGES.meher_2,
+    img3: DEFAULT_IMAGES.meher_3,
+  },
+  'ira-drape': {
+    id: 'ira-drape',
+    num: '03',
+    name: 'The Ira Handloom Mulmul Saree',
+    collection: 'Bestsellers',
+    collectionKey: 'bestsellers',
+    price: 29500,
+    desc: 'Unbleached Bengal mulmul and tussar silk finished with hand-knotted tassels and woven gold selvedge borders.',
+    cap1: 'Full-length unbleached mulmul & tussar drape',
+    cap2: 'Hand-knotted tassels & gold selvedge weave',
+    cap3: 'Sunlit back pallu & pleated movement',
+    img1: DEFAULT_IMAGES.ira_1,
+    img2: DEFAULT_IMAGES.ira_2,
+    img3: DEFAULT_IMAGES.ira_3,
+  },
+};
+
+export const COLLECTIONS_CATALOG: Record<string, CollectionCategory> = {
+  'new-arrivals': {
+    title: 'New Arrivals',
+    kicker: '01 / Season',
+    subtitle: 'Freshly unveiled silhouettes from the Autumn / Winter atelier edit.',
+    items: [
+      {
+        id: 'meher-kurta',
+        name: 'The Meher Tissue Kurta Ensemble',
+        detail: 'Banarasi Tissue & Organza',
+        price: 36000,
+        img: DEFAULT_IMAGES.meher_1,
+      },
+      {
+        id: 'tara-jacket',
+        name: 'Tara Raw Silk Bandhgala & Drape Skirt',
+        detail: 'Structured Mulberry Silk',
+        price: 54000,
+        img: DEFAULT_IMAGES.col_new_arrivals,
+      },
+      {
+        id: 'noor-saree',
+        name: 'Noor Nocturne Zari Silk Saree',
+        detail: 'Handwoven Obsidian Silk & Zari',
+        price: 46000,
+        img: DEFAULT_IMAGES.hero_3,
+      },
+    ],
+  },
+  'signature-pieces': {
+    title: 'Signature Pieces',
+    kicker: '02 / Atelier',
+    subtitle: 'Architectural Indian couture defined by hand-beaten zari and sculptural pleating.',
+    items: [
+      {
+        id: 'devika-saree',
+        name: 'The Devika Zari Organza Saree',
+        detail: 'Chanderi Silk-Organza & Zari',
+        price: 48500,
+        img: DEFAULT_IMAGES.devika_1,
+      },
+      {
+        id: 'kavya-lehenga',
+        name: 'Kavya Hand-Pleated Skirt & Cape',
+        detail: 'Hand-Pleated Charcoal Silk',
+        price: 68000,
+        img: DEFAULT_IMAGES.col_signature,
+      },
+      {
+        id: 'asha-anarkali',
+        name: 'Asha Kalidar Chanderi Drape',
+        detail: 'Handloom Silk-Organza',
+        price: 62000,
+        img: DEFAULT_IMAGES.hero_1,
+      },
+    ],
+  },
+  'bestsellers': {
+    title: 'Bestsellers',
+    kicker: '03 / Archive',
+    subtitle: 'Celebrated Love Lasa classics prized for heirloom longevity and effortless drape.',
+    items: [
+      {
+        id: 'ira-drape',
+        name: 'The Ira Handloom Mulmul Saree',
+        detail: 'Bengal Mulmul & Tussar Silk',
+        price: 29500,
+        img: DEFAULT_IMAGES.ira_1,
+      },
+      {
+        id: 'riya-saree',
+        name: 'Riya Maheshwari Gold-Selvedge Saree',
+        detail: 'Handwoven Cotton-Silk',
+        price: 27500,
+        img: DEFAULT_IMAGES.ira_3,
+      },
+      {
+        id: 'sana-kurta',
+        name: 'Sana Bronze Tissue Choga Set',
+        detail: 'Handwoven Banarasi Tissue',
+        price: 38000,
+        img: DEFAULT_IMAGES.hero_2,
+      },
+    ],
+  },
+};
+
+export const formatINR = (num: number): string => '₹' + num.toLocaleString('en-IN');

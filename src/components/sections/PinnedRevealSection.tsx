@@ -15,7 +15,7 @@ export function PinnedRevealSection() {
   const backdropRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const { gsap, ScrollTrigger } = registerGSAP();
+    const { gsap } = registerGSAP();
 
     // Respect user's reduced-motion preference
     const prefersReducedMotion = window.matchMedia(

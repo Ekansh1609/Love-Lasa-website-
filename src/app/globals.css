@@ -1,62 +1,193 @@
 @import "tailwindcss";
 
 :root {
-  --color-ivory: #FAF8F5;
-  --color-ivory-warm: #F4EFEA;
-  --color-ivory-surface: #EFE9E0;
-  --color-ivory-border: #E5DFD3;
-  --color-ivory-border-subtle: #EEE8DC;
-  
-  --color-charcoal: #191817;
-  --color-charcoal-light: #2A2826;
-  --color-charcoal-muted: #5E5B56;
-  --color-charcoal-subtle: #8E8A83;
-  
-  --color-accent-red: #D32F2F;
-  --color-accent-red-hover: #B71C1C;
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-slow: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --color-ivory: #F5EFE4;
+  --color-alabaster: #EAE0D0;
+  --color-sand: #DDD1BE;
+  --color-obsidian: #12100F;
+  --color-charcoal: #1D1917;
+  --color-taupe: #7A6F64;
+  --color-crimson: #8B1E24;
+  --color-crimson-light: #A92830;
+  --color-brass: #B89660;
+  --color-brass-light: #D5B887;
 }
 
 @theme inline {
   --font-serif: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
-  --font-sans: var(--font-dm-sans), "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans: var(--font-inter), "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   --color-ivory: var(--color-ivory);
-  --color-ivory-warm: var(--color-ivory-warm);
-  --color-ivory-surface: var(--color-ivory-surface);
-  --color-ivory-border: var(--color-ivory-border);
+  --color-alabaster: var(--color-alabaster);
+  --color-sand: var(--color-sand);
+  --color-obsidian: var(--color-obsidian);
   --color-charcoal: var(--color-charcoal);
-  --color-charcoal-muted: var(--color-charcoal-muted);
-  --color-accent-red: var(--color-accent-red);
+  --color-taupe: var(--color-taupe);
+  --color-crimson: var(--color-crimson);
+  --color-crimson-light: var(--color-crimson-light);
+  --color-brass: var(--color-brass);
+  --color-brass-light: var(--color-brass-light);
 }
 
-html {
-  scroll-behavior: smooth;
-  background-color: #FAF8F5;
-  color: #191817;
+html, body {
+  background-color: #12100F;
+  color: #F5EFE4;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-  background-color: var(--color-ivory);
-  color: var(--color-charcoal);
-  min-height: 100vh;
   overflow-x: hidden;
 }
 
-::selection {
-  background: #191817;
-  color: #FAF8F5;
+/* Editorial Scroll Progress in Deep Signature Red + Antique Gold Gradient */
+#scroll-progress {
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 0.08s linear;
+  background: linear-gradient(90deg, #8B1E24 0%, #B89660 100%);
 }
 
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+/* Reveal Animations */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 1.15s var(--ease-editorial), transform 1.15s var(--ease-editorial);
+}
+.reveal-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Luxury Curtain Wipe Reveal */
+.reveal-curtain {
+  clip-path: inset(12% 0 12% 0);
+  opacity: 0;
+  transform: scale(1.06);
+  transition: clip-path 1.45s var(--ease-slow), opacity 1.1s ease, transform 1.55s var(--ease-slow);
+}
+.reveal-curtain.is-visible {
+  clip-path: inset(0 0 0 0);
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Hero Slide Transitions with Slow Ken Burns Drift */
+.hero-slide {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.08);
+  transition: opacity 1.4s var(--ease-slow), transform 8s var(--ease-slow), visibility 1.4s;
+}
+.hero-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+.hero-copy-enter {
+  animation: heroCopyIn 1.05s var(--ease-editorial) forwards;
+}
+@keyframes heroCopyIn {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
+
+/* Collection Card Hover & Parallax Inner Image */
+.collection-media-wrap {
+  overflow: hidden;
+}
+.collection-media-wrap img {
+  transition: transform 1.5s var(--ease-editorial), filter 0.9s ease;
+  will-change: transform;
+}
+.collection-card:hover .collection-media-wrap img {
+  transform: scale(1.07);
+}
+
+/* Parallax Image Wrapper */
+.parallax-img-inner {
+  will-change: transform;
+  transition: transform 0.12s linear;
+}
+
+/* Hairline Link Underline with Signature Red Accent */
+.editorial-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+.editorial-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 1px;
+  background-color: #8B1E24;
+  transform: scaleX(0.4);
+  transform-origin: left center;
+  transition: transform 0.5s var(--ease-editorial);
+}
+.editorial-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* Drawer & Modal Backdrop */
+.drawer-backdrop {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.45s var(--ease-editorial);
+}
+.drawer-backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.drawer-panel {
+  transform: translateX(100%);
+  transition: transform 0.6s var(--ease-editorial);
+}
+.drawer-backdrop.is-open .drawer-panel {
+  transform: translateX(0);
+}
+
+.modal-backdrop {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s var(--ease-editorial);
+}
+.modal-backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Crossfade when switching featured garment */
+.featured-stage-fade {
+  animation: stageFade 0.8s var(--ease-editorial) forwards;
+}
+@keyframes stageFade {
+  0% { opacity: 0.2; transform: scale(0.99); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-up, .reveal-curtain, .hero-slide, .drawer-panel, .parallax-img-inner {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+    clip-path: none !important;
+    opacity: 1 !important;
+  }
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #12100F; }
+::-webkit-scrollbar-thumb { background: #8B1E24; }

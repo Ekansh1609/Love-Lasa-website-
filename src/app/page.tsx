@@ -1,79 +1,57 @@
-"use client";
-
-import React from "react";
-import { Header } from "@/components/layout/Header";
-import { HeroSection } from "@/components/sections/HeroSection";
-import { DiscoverCollectionsSection } from "@/components/sections/DiscoverCollectionsSection";
-import { ThreeImageRevealSection } from "@/components/sections/ThreeImageReveal";
-import { Container } from "@/components/ui/Container";
-import { CheckCircle2 } from "lucide-react";
+import React from 'react';
+import { ScrollProgress } from '@/components/couture/ScrollProgress';
+import { Header } from '@/components/couture/Header';
+import { MobileNavOverlay } from '@/components/couture/MobileNavOverlay';
+import { HeroSection } from '@/components/couture/HeroSection';
+import { CollectionDiscoverySection } from '@/components/couture/CollectionDiscoverySection';
+import { FeaturedStorySection } from '@/components/couture/FeaturedStorySection';
+import { OurJourneySection } from '@/components/couture/OurJourneySection';
+import { FollowUsSection } from '@/components/couture/FollowUsSection';
+import { Footer } from '@/components/couture/Footer';
+import { BagDrawer } from '@/components/couture/BagDrawer';
+import { AccountModal } from '@/components/couture/AccountModal';
+import { MediaStudioDrawer } from '@/components/couture/MediaStudioDrawer';
+import { Toast } from '@/components/couture/Toast';
+import { BackToTop } from '@/components/couture/BackToTop';
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-[#FAF8F5] text-[#191817] font-sans selection:bg-[#191817] selection:text-[#FAF8F5]">
-      {/* Editorial Navigation Header */}
+    <>
+      {/* Scroll Continuity Hairline */}
+      <ScrollProgress />
+
+      {/* Adaptive Minimal Luxury Header */}
       <Header />
 
+      {/* Fullscreen Mobile Navigation Menu Overlay */}
+      <MobileNavOverlay />
+
       <main>
-        {/* 1. Hero Section (Form in Motion) */}
+        {/* 1. Hero — Full-Bleed Runway Fashion Campaign */}
         <HeroSection />
 
-        {/* 2. Discover Our Collections Section (Rolex-style Atmospheric Reveal & Settle) */}
-        <DiscoverCollectionsSection />
+        {/* 2. Collection Discovery — Soft Black Cinematic Gallery */}
+        <CollectionDiscoverySection />
 
-        {/* 3. Three-Image Reveal Section (Tripartite Form) */}
-        <ThreeImageRevealSection />
+        {/* 3. Featured Collection — Warm Ivory & Warm Beige Exhibition Stage */}
+        <FeaturedStorySection />
 
-        {/* Verification & Continuity Status */}
-        <section className="py-20 sm:py-28 bg-[#FAF8F5] border-t border-[#E5DFD3]">
-          <Container size="default">
-            <div className="max-w-2xl mx-auto text-center mb-12">
-              <span className="text-[10px] uppercase tracking-[0.26em] text-[#5E5B56] block mb-2">
-                Interaction Verification
-              </span>
-              <h2 className="font-serif text-3xl sm:text-4xl font-light text-[#191817]">
-                Hero to Collections Transition
-              </h2>
-              <p className="mt-3 text-xs sm:text-sm text-[#5E5B56] font-light leading-relaxed">
-                The Hero naturally transitions into Discover Our Collections via an atmospheric blurred backdrop.
-                The three collection cards emerge visually elevated and larger, smoothly settling into the grid.
-              </p>
-            </div>
+        {/* 4. Our Journey — Full-Viewport Pit Loom Story */}
+        <OurJourneySection />
 
-            <div className="max-w-3xl mx-auto border border-[#E5DFD3] bg-[#F4EFEA] p-6 sm:p-8 space-y-4 text-xs">
-              <div className="flex items-start space-x-3 p-3 bg-[#FAF8F5] border border-[#E5DFD3]/80">
-                <CheckCircle2 className="w-4 h-4 text-[#D32F2F] flex-shrink-0 mt-0.5" />
-                <div>
-                  <strong className="text-[#191817] block font-medium">Hero Section ("Form in Motion")</strong>
-                  <span className="text-[#5E5B56] text-[11px]">
-                    Contemporary Indian Wear tag, Cormorant Garamond display title with italic "in Motion", "Explore the Edit →", and downward scroll cue.
-                  </span>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-3 p-3 bg-[#FAF8F5] border border-[#E5DFD3]/80">
-                <CheckCircle2 className="w-4 h-4 text-[#D32F2F] flex-shrink-0 mt-0.5" />
-                <div>
-                  <strong className="text-[#191817] block font-medium">Rolex-Style Scale Reveal (Desktop 1024px+)</strong>
-                  <span className="text-[#5E5B56] text-[11px]">
-                    Pinned ScrollTrigger scene, atmospheric blurred backdrop, cards emerge elevated at scale 1.18 with dramatic drop shadow, then smoothly scale down to 1.0 and settle into the 3-column grid before pin releases.
-                  </span>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-3 p-3 bg-[#FAF8F5] border border-[#E5DFD3]/80">
-                <CheckCircle2 className="w-4 h-4 text-[#D32F2F] flex-shrink-0 mt-0.5" />
-                <div>
-                  <strong className="text-[#191817] block font-medium">Responsive Vertical Reveal (Mobile & Tablet)</strong>
-                  <span className="text-[#5E5B56] text-[11px]">
-                    Preserves the elevation & scale settle interaction on mobile while maintaining continuous, uninterrupted vertical touch scrolling.
-                  </span>
-                </div>
-              </div>
-            </div>
-          </Container>
-        </section>
+        {/* 5. Follow Us — A Glimpse Into Our World (Social Showcase) */}
+        <FollowUsSection />
       </main>
-    </div>
+
+      {/* Minimal Luxury Footer */}
+      <Footer />
+
+      {/* Interactive Modals and Drawers */}
+      <BagDrawer />
+      <AccountModal />
+      <MediaStudioDrawer />
+      <BackToTop />
+      <Toast />
+    </>
   );
 }
